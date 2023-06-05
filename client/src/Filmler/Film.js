@@ -6,6 +6,7 @@ export default function Film(props) {
   const [movie, setMovie] = useState();
 
   //let id = 1;
+  
   let {id}=useParams();
   // URL'den alınan :id parametresini bu değişkene aktarın
 
@@ -15,6 +16,8 @@ export default function Film(props) {
       .then(response => {
         
         setMovie(response.data)
+        
+        
           // Bu kısmı log statementlarıyla çalışın
           // ve burdan gelen response'u 'movie' e aktarın
       })
@@ -26,8 +29,11 @@ export default function Film(props) {
   }, [id]);
 
   // Yalnızca esnek görevlere geçtiğinizde burdaki yorum etiketini kaldırın
+
    const filmiKaydet = evt => { 
+    
     props.saveCallBack(id)
+    
    };
 
   if (!movie) {

@@ -9,6 +9,7 @@ import { Route, Routes } from 'react-router-dom';
 
 
 export default function App () {
+
   const [saved, setSaved] = useState([]); // Stretch: the ids of "saved" movies
   const [movieList, setMovieList] = useState([]);
 
@@ -42,14 +43,14 @@ export default function App () {
 
   return (
     <div>
-      <KaydedilenlerListesi list={[ /* Burası esnek */]} />
+      <KaydedilenlerListesi list={saved} />
 
-      <div>
+      
       <Routes>
           <Route path={"/filmler/:id"} element={<Film saveCallBack={KaydedilenlerListesineEkle}/>}/>
           <Route path="/"  element={<FilmListesi movies={movieList} />}/>
         </Routes>
-      </div>
+      
     </div>
   );
 }
